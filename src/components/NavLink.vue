@@ -9,3 +9,8 @@ export default {
 <template>
 	<a :href="url">{{ text }}</a>
 </template>
+<style>
+	a {
+		text-decoration: none;
+	}
+</style>
