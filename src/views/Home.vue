@@ -116,3 +116,23 @@ export default {
 </script>
 
 
+<style scoped>
+.description {
+  max-width: 960px;
+  font-size: 1.2rem;
+  margin: 0 auto;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  text-align: center;
+  font-style: italic;
+}
+
+</style>
+

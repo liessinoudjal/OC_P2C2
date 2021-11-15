@@ -30,7 +30,21 @@
 <script>
 export default {
 	name: 'MenuItem',
-	props: {simpleMenu : Array },
+	props: {simpleMenu : {
+        type : Array,
+        default : () =>  [
+			{
+				name: "youyou",
+				image: {
+					source: "/images/croissant.jpg",
+					alt: "Un croissant"
+				},
+				inStock: true,
+				quantity: 1,
+        price: 100
+			}
+		]
+    } },
     methods: {
         addToCart(amount){
             this.$emit("addToCart", amount)
@@ -48,3 +62,16 @@ export default {
 }
 
 </script>
+
+<style  scoped>
+.menu-item {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.menu-item__image {
+  max-width: 300px;
+}
+</style>
