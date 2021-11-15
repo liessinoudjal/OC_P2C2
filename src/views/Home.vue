@@ -8,9 +8,11 @@
 				est difficile de s'arrêter.
 			</p>
 			<section class="menu">
-				<h2>Menu</h2>
+				<h2>Menu </h2>
+        <p v-if="isPromotion">Journée de promotion : -10 %</p>
+
 	
-				<MenuItem :simpleMenu="simpleMenu" @addToCart="addToShoppingCart"/>
+				<MenuItem :simpleMenu="simpleMenu" @addToCart="addToShoppingCart" @promotion="handlePromotion"/>
 					
 				
 			</section>
@@ -47,6 +49,7 @@ export default {
 	},
 	data: () => {
 		return  {
+    isPromotion: false,
 		address: "18 avenue du Beurre, Paris, France",
 		email: "hello@cafewithavue.bakery",
 		phone: "01 88 88 88 88",
@@ -60,7 +63,8 @@ export default {
 					alt: "Un croissant"
 				},
 				inStock: true,
-				quantity: 1
+				quantity: 1,
+        price: 1.30
 			},
 			{
 				name: "Baguette de pain",
@@ -69,7 +73,8 @@ export default {
 					alt: "Quatre baguettes de pain"
 				},
 				inStock: true,
-				quantity: 1
+				quantity: 1,
+        price: 0.95
 			},
 			{
 				name: "Éclair",
@@ -78,7 +83,8 @@ export default {
 					alt: "Éclair au chocolat"
 				},
 				inStock: false,
-				quantity: 1
+				quantity: 1,
+        price: 1.95
 			}
 		]
 		}
@@ -95,7 +101,16 @@ export default {
 		addToShoppingCart(amount) {
 
 			this.shoppingCart += amount
-		}
+		},
+    handlePromotion(){
+      let menus = [...this.simpleMenu]
+      for(let menu of menus){
+        menu.price -= (menu.price * 0.1).toFixed(2)
+      }
+      this.simpleMenu = menus
+
+      this.isPromotion = true
+    }
 	}
 }
 </script>

@@ -7,6 +7,7 @@
     />
     <div>
         <h3>{{ item.name }}</h3>
+        <p>Prix : {{ item.price }}</p>
         <p v-if="item.inStock">En stock</p>
         <p v-else>En rupture de stock</p>
         <div>
@@ -34,6 +35,14 @@ export default {
         addToCart(amount){
             this.$emit("addToCart", amount)
         }
+    },
+    beforeMount(){
+        let day = new Date().getDate()
+    
+        // let menu = [...this.simpleMenu]
+        if(day % 2 === 0){
+           this.$emit("promotion")
+        }        
     }
   
 }

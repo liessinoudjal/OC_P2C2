@@ -10,8 +10,9 @@ export default {
 
 <template>
 <div id="nav">
-    <router-link to="/">Home </router-link> |
-    <router-link to="/about"> About</router-link>
+    <router-link to="/">Home </router-link> 
+    <router-link to="/about"> About</router-link> 
+    <router-link to="/contact"> Contact</router-link>
   </div>
   <router-view/>
 
@@ -36,9 +37,11 @@ export default {
 	text-decoration: none;
     font-weight: bold;
     color: #2c3e50;
+	margin: 16px;
 
     &.router-link-exact-active {
-      color: #42b983;
+		color: #42b983;
+		border-bottom: 2px solid #42b983;
     }
   }
 }
