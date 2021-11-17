@@ -19,13 +19,14 @@
                 id="add-item-quantity"
                 type="number"
             />
-            <button @click="addToCart(item.quantity)">
-                Ajouter au panier d'achat
-            </button>
-            <BaseButton
-					@click="updateShoppingCart(quantity)"
-					text="Ajouter au panier"
-				/>
+
+        
+            <BaseButton @click="addToCart(item.quantity)"  id="toto">
+                <template v-slot:default >
+                    Ajouter au panier
+                </template> 
+            </BaseButton>
+
         </div>
     </div>
 </div>
@@ -35,6 +36,9 @@
 import BaseButton from "./BaseButton.vue"
 export default {
 	name: 'MenuItem',
+        components: {
+		BaseButton
+	},
 	props: {simpleMenu : {
         type : Array,
         default : () =>  [
@@ -52,6 +56,7 @@ export default {
     } },
     methods: {
         addToCart(amount){
+            console.log(amount)
             this.$emit("addToCart", amount)
         }
     },
