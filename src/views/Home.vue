@@ -50,44 +50,44 @@ export default {
 	data: () => {
 		return  {
     isPromotion: false,
-		address: "18 avenue du Beurre, Paris, France",
-		email: "hello@cafewithavue.bakery",
-		phone: "01 88 88 88 88",
-		restaurantName: "La belle vue",
-		shoppingCart: 0,
-		simpleMenu: [
-			{
-				name: "Croissant",
-				image: {
-					source: "/images/croissant.jpg",
-					alt: "Un croissant"
-				},
-				inStock: true,
-				quantity: 1,
-        price: 1.30
+	address: "18 avenue du Beurre, Paris, France",
+	email: "hello@cafewithavue.bakery",
+	phone: "01 88 88 88 88",
+	restaurantName: "La belle vue",
+	shoppingCart: 0,
+	simpleMenu: [
+		{
+			name: "Croissant",
+			image: {
+				source: "/images/croissant.jpg",
+				alt: "Un croissant"
 			},
-			{
-				name: "Baguette de pain",
-				image: {
-					source: "/images/french-baguette.jpeg",
-					alt: "Quatre baguettes de pain"
-				},
-				inStock: true,
-				quantity: 1,
-        price: 0.95
+			inStock: true,
+			quantity: 1,
+	price: 1.30
+		},
+		{
+			name: "Baguette de pain",
+			image: {
+				source: "/images/french-baguette.jpeg",
+				alt: "Quatre baguettes de pain"
 			},
-			{
-				name: "Éclair",
-				image: {
-					source: "/images/eclair.jpg",
-					alt: "Éclair au chocolat"
-				},
-				inStock: false,
-				quantity: 1,
-        price: 1.95
-			}
-		]
+			inStock: true,
+			quantity: 1,
+	price: 0.95
+		},
+		{
+			name: "Éclair",
+			image: {
+				source: "/images/eclair.jpg",
+				alt: "Éclair au chocolat"
+			},
+			inStock: false,
+			quantity: 1,
+	price: 1.95
 		}
+	]
+	}
 		
 	},
 	computed: {

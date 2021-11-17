@@ -22,12 +22,17 @@
             <button @click="addToCart(item.quantity)">
                 Ajouter au panier d'achat
             </button>
+            <BaseButton
+					@click="updateShoppingCart(quantity)"
+					text="Ajouter au panier"
+				/>
         </div>
     </div>
 </div>
 </template>
 
 <script>
+import BaseButton from "./BaseButton.vue"
 export default {
 	name: 'MenuItem',
 	props: {simpleMenu : {
