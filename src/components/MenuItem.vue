@@ -56,15 +56,14 @@ export default {
     } },
     methods: {
         addToCart(amount){
-            console.log(amount)
-            this.$emit("addToCart", amount)
+            this.$emit("addToCart", {amount})
         }
     },
     beforeMount(){
         let day = new Date().getDate()
     
         // let menu = [...this.simpleMenu]
-        if(day % 2 === 0){
+        if(day % 2 == 0){
            this.$emit("promotion")
         }        
     }

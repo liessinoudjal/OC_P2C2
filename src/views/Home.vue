@@ -39,6 +39,7 @@
 
 <script>
 import MenuItem from '../components/MenuItem.vue'
+import {mapState, mapGetters, mapActions} from 'vuex'
 // @ is an alias to /src
 
 
@@ -49,68 +50,29 @@ export default {
 	},
 	data: () => {
 		return  {
-    isPromotion: false,
-	address: "18 avenue du Beurre, Paris, France",
-	email: "hello@cafewithavue.bakery",
-	phone: "01 88 88 88 88",
-	restaurantName: "La belle vue",
-	shoppingCart: 0,
-	simpleMenu: [
-		{
-			name: "Croissant",
-			image: {
-				source: "/images/croissant.jpg",
-				alt: "Un croissant"
-			},
-			inStock: true,
-			quantity: 1,
-	price: 1.30
-		},
-		{
-			name: "Baguette de pain",
-			image: {
-				source: "/images/french-baguette.jpeg",
-				alt: "Quatre baguettes de pain"
-			},
-			inStock: true,
-			quantity: 1,
-	price: 0.95
-		},
-		{
-			name: "Éclair",
-			image: {
-				source: "/images/eclair.jpg",
-				alt: "Éclair au chocolat"
-			},
-			inStock: false,
-			quantity: 1,
-	price: 1.95
+			isPromotion: false,
+			address: "18 avenue du Beurre, Paris, France",
+			email: "hello@cafewithavue.bakery",
+			phone: "01 88 88 88 88",
 		}
-	]
-	}
-		
 	},
 	computed: {
-		copyright() {
-			const currentYear = new Date().getFullYear()
-
-			return `Copyright ${this.restaurantName} ${currentYear}`
-		}
+		...mapState(["restaurantName", 'shoppingCart', 'simpleMenu']),
+		...mapGetters(["copyright"])
+		
+		
 	},
 	methods: {
-		addToShoppingCart(amount) {
+		...mapActions(["addToShoppingCart"]),
+		handlePromotion(){
+		let menus = [...this.simpleMenu]
+		for(let menu of menus){
+			menu.price -= (menu.price * 0.1).toFixed(2)
+		}
+		this.simpleMenu = menus
 
-			this.shoppingCart += amount
-		},
-    handlePromotion(){
-      let menus = [...this.simpleMenu]
-      for(let menu of menus){
-        menu.price -= (menu.price * 0.1).toFixed(2)
-      }
-      this.simpleMenu = menus
-
-      this.isPromotion = true
-    }
+		this.isPromotion = true
+		}
 	}
 }
 </script>
